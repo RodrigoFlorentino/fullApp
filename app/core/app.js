@@ -8,6 +8,7 @@
         'app.chat',
         'app.user',
         'app.outros',
+        'app.bot',
         'app.filtersC',
         'app.filtersT',
         'app.nav.header',

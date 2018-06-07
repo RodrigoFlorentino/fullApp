@@ -7,8 +7,9 @@
 
     function config($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.when('', '/chat/list');
-        $urlRouterProvider.when('/', '/chat/list');
+        $urlRouterProvider.when('', '/bot');
+        $urlRouterProvider.when('/', '/bot');
+        $urlRouterProvider.when('/admin', '/login');
         $urlRouterProvider.when('/chat', '/chat/list');
         $urlRouterProvider.when('/user', '/user/list');
         $urlRouterProvider.when('/outros', '/outros/list');
@@ -19,6 +20,15 @@
                 templateUrl: 'core/login/login.html',
                 controller: 'loginController',
                 controllerAs: 'LC',
+                restrictions: {
+                    ensureAuthenticated: false
+                }
+            })
+            .state('bot', {
+                url: '/bot',
+                templateUrl: 'core/bot/bot.html',
+                controller: 'botController',
+                controllerAs: 'BC',
                 restrictions: {
                     ensureAuthenticated: false
                 }
@@ -157,7 +167,6 @@
                                 $location.path(to.name);
                             },
                             function(error){
-                                console.log('Erro:' + JSON.stringify(error.data.message));
                                 $location.path('/login');
                             }
                         );
@@ -169,9 +178,9 @@
 
             });
 
-            //$rootScope.$on("$stateChangeStart", function(evt, to, toP, from, fromP) { console.log("Start:   " + message(to, toP, from, fromP)); });
-            //$rootScope.$on("$stateChangeSuccess", function(evt, to, toP, from, fromP) { console.log("Success: " + message(to, toP, from, fromP)); });
-            //$rootScope.$on("$stateChangeError", function(evt, to, toP, from, fromP, err) { console.log("Error:   " + message(to, toP, from, fromP), err); });
+            $rootScope.$on("$stateChangeStart", function(evt, to, toP, from, fromP) { console.log("Start:   " + message(to, toP, from, fromP)); });
+            $rootScope.$on("$stateChangeSuccess", function(evt, to, toP, from, fromP) { console.log("Success: " + message(to, toP, from, fromP)); });
+            $rootScope.$on("$stateChangeError", function(evt, to, toP, from, fromP, err) { console.log("Error:   " + message(to, toP, from, fromP), err); });
 
         };
 

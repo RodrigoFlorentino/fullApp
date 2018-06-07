@@ -30,6 +30,7 @@
 
         <link rel="stylesheet" type="text/css" href="assets/css/loading.css"/>
         <link rel="stylesheet" type="text/css" href="assets/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="assets/css/bot.css"/>
 
     </head>
 
@@ -69,6 +70,10 @@
         <!--ngStorage -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
 
+        <script src="assets/js/chat.js"></script>
+        <script src="assets/js/audio.js"></script>
+        <audio autoplay='true' id='audio' class='audio' controls='' type='audio/ogg;codecs=opus'></audio>
+
         <!-- Application scripts: -->
         <script src="core/app.js"></script>
         <script src="core/app.routes.js"></script>
@@ -80,6 +85,8 @@
         <script src="core/user/userService.js"></script>
         <script src="core/outros/outrosController.js"></script>
         <script src="core/outros/outrosService.js"></script>
+        <script src="core/bot/botController.js"></script>
+        <script src="core/bot/botService.js"></script>
         <script src="core/navigation/headerController.js"></script>
         <script src="core/navigation/menuController.js"></script>
         <script src="core/navigation/modalController.js"></script>

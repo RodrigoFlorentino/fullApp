@@ -14,7 +14,7 @@
         function logout(){
 
             $localStorage.token = '';
-            $location.path('/login');
+            $location.path('/admin');
 
         }
 
